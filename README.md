@@ -20,6 +20,13 @@ Chrome 浏览器扩展（Manifest V3），按固定间隔自动刷新指定域�
 
 本项目是纯静态的浏览器扩展，**没有任何第三方依赖，不需要 `npm install`**。开发用脚本只依赖 Node.js 内置模块（建议 Node 18 及以上）。
 
+### 安装现成的 zip 包
+
+1. 下载 `dist/` 里的 `auto-refresh-v<版本号>.zip`，解压到任意目录
+2. 打开 Chrome，地址栏输入 `chrome://extensions/`
+3. 打开右上角的 **开发者模式** 开关
+4. 点击 **加载已解压的扩展程序**，选择解压出来的文件夹（里面有 `manifest.json` 的那一层）
+
 ### 开发模式加载
 
 1. 打开 Chrome，地址栏输入 `chrome://extensions/`
@@ -29,11 +36,15 @@ Chrome 浏览器扩展（Manifest V3），按固定间隔自动刷新指定域�
 
 ### 构建分发包
 
+`dist/` 目录里附有当前版本已构建好的安装包 `auto-refresh-v<版本号>.zip`，直接下载解压就能用，无需自己构建；也可以到仓库的 **Releases** 页面下载对应版本的 zip，不用把代码下载下来。
+
+想自己打包时运行：
+
 ```bash
 node tools/build.js
 ```
 
-产物输出到 `dist/auto-refresh-v<版本号>.zip`，只包含运行必需的文件（`manifest.json`、`background.js`、`popup/`、`icons/`），不含 README、构建脚本等开发文件。
+产物输出到 `dist/auto-refresh-v<版本号>.zip`，只包含运行必需的文件（`manifest.json`、`background.js`、`popup/`、`icons/`），不含 README、构建脚本等开发文件。版本号取自 `manifest.json` 的 `version` 字段。
 
 ### 权限说明
 
@@ -69,6 +80,13 @@ node tools/check-popup-ids.js
 node tools/generate-icons.js
 ```
 
+```bash
+# 发布新版本：以版本号为 tag 创建 GitHub Release，并把 dist 里的安装包挂上去
+gh release create v1.0.0 "dist/auto-refresh-v1.0.0.zip"
+```
+
+发布前先把 `manifest.json` 的 `version` 改成新版本号并重新执行 `node tools/build.js`，让 tag、安装包文件名和扩展内显示的版本保持一致。
+
 ## 目录结构
 
 ```
@@ -84,6 +102,7 @@ node tools/generate-icons.js
 │   ├── generate-icons.js  # 图标生成脚本
 │   ├── check-popup-ids.js # 弹窗元素 id 一致性核对脚本
 │   └── crc32.js           # CRC-32 计算，PNG 与 ZIP 共用
+├── dist/                  # 构建产物：带版本号的安装包 zip
 ├── LICENSE                # MIT 许可证
 └── .gitignore             # Git 忽略规则
 ```

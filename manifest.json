@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "页面保活助手",
-  "version": "2.3.4",
+  "version": "1.0.0",
   "description": "按固定间隔自动刷新指定域名的页面，支持静默保活，避免长时间无操作被登出。",
   "permissions": ["alarms", "tabs", "storage", "scripting", "notifications"],
   "host_permissions": ["http://*/*", "https://*/*"],
