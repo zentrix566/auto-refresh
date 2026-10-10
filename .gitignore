@@ -1,0 +1,30 @@
+# 依赖与构建产物
+node_modules/
+build/
+*.zip
+*.crx
+# dist/ 下的其他构建产物默认忽略，但保留带版本号的可安装分发包（方便直接分发）
+dist/*
+!dist/*.zip
+
+# 扩展签名私钥，绝对不能提交
+*.pem
+
+# 本地配置
+.env
+
+# 日志
+*.log
+npm-debug.log*
+
+# 编辑器 / IDE
+.vscode/
+.idea/
+*.swp
+
+# AI 助手本地工作数据
+.workbuddy/
+
+# 操作系统
+.DS_Store
+Thumbs.db

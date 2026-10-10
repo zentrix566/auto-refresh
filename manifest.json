@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "页面保活助手",
+  "version": "2.3.4",
+  "description": "按固定间隔自动刷新指定域名的页面，支持静默保活，避免长时间无操作被登出。",
+  "permissions": ["alarms", "tabs", "storage", "scripting", "notifications"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "页面保活助手",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

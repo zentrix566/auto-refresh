@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>页面保活助手</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>页面保活助手 <span id="ver" class="ver"></span></h1>
+      <span id="phase" class="badge">未启用</span>
+    </header>
+
+    <section class="panel">
+      <div class="row">
+        <label class="grow">生效域名（子域名自动包含，回车添加）
+          <input type="text" id="hostInput" placeholder="输入域名后回车" />
+        </label>
+        <button type="button" id="btnUseCurrent" class="chip">当前页域名</button>
+      </div>
+      <div id="hostRows" class="host-rows"></div>
+      <div class="row">
+        <label class="check">
+          <input type="checkbox" id="silent" />
+          <span>静默刷新（页面不闪、表单不丢）</span>
+        </label>
+      </div>
+      <div class="row">
+        <label class="check">
+          <input type="checkbox" id="jitter" />
+          <span>随机抖动（间隔上下浮动 20%，默认准点刷新）</span>
+        </label>
+      </div>
+      <div class="row">
+        <label class="check">
+          <input type="checkbox" id="limitHours" />
+          <span>仅时段内保活</span>
+        </label>
+        <input type="time" id="activeFrom" />
+        <span class="tilde">–</span>
+        <input type="time" id="activeTo" />
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="stats">
+        <div class="stat"><span>状态</span><b id="statState">—</b></div>
+        <div class="stat"><span>下次刷新</span><b id="statNext">—</b></div>
+        <div class="stat"><span>上次刷新</span><b id="statLast">—</b></div>
+        <div class="stat">
+          <span>累计执行</span>
+          <b id="statCount">0</b>
+          <button id="btnResetCount" class="link" type="button">清零</button>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="btnToggle" class="primary" type="button">启用保活</button>
+        <button id="btnRunNow" type="button">立即刷新</button>
+        <button id="btnOpenTabs" type="button">打开标签页</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="log-head">
+        <span>运行日志</span>
+        <button id="btnClearLogs" class="link">清空</button>
+      </div>
+      <div id="logs" class="logs"></div>
+    </section>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

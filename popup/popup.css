@@ -1,0 +1,319 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 380px;
+  margin: 0;
+  padding: 12px;
+  font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  font-size: 12px;
+  color: #1f2937;
+  background: #f5f7fa;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ver {
+  font-size: 10px;
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #e5e7eb;
+  color: #374151;
+  font-size: 11px;
+}
+
+.badge.done {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: flex-end;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  color: #6b7280;
+  font-size: 11px;
+}
+
+label.grow {
+  flex: 2;
+}
+
+input {
+  height: 26px;
+  padding: 0 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #111827;
+  background: #fff;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.chip {
+  height: 26px;
+  padding: 0 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #fff;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.chip:hover {
+  border-color: #9ca3af;
+}
+
+label.check {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  color: #374151;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+input[type='checkbox'] {
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  flex: none;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+input[type='time'] {
+  flex: none;
+  width: 92px;
+}
+
+input[type='time']:disabled {
+  color: #9ca3af;
+  background: #f9fafb;
+}
+
+.tilde {
+  color: #9ca3af;
+  flex: none;
+}
+
+.host-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+/* 蓝色标签胶囊：让生效域名在视觉上足够突出 */
+.host-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px 4px 10px;
+  border: 1px solid #bfdbfe;
+  border-radius: 14px;
+  background: #eff6ff;
+}
+
+.host-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+label.host-min {
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  color: #3b82f6;
+  font-size: 11px;
+  cursor: default;
+}
+
+label.host-min input {
+  width: 44px;
+  height: 20px;
+  border-color: #bfdbfe;
+  border-radius: 10px;
+  text-align: center;
+  color: #1d4ed8;
+}
+
+.host-del {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #bfdbfe;
+  color: #1e40af;
+  font-size: 10px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.host-del:hover {
+  background: #93c5fd;
+  color: #1e3a8a;
+}
+
+.stats {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px;
+  border-radius: 6px;
+  background: #f9fafb;
+}
+
+.stat span {
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.stat b {
+  color: #111827;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.stat .link {
+  align-self: flex-start;
+  font-size: 11px;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+button {
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #fff;
+  color: #374151;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+button:hover:not(:disabled) {
+  border-color: #9ca3af;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+button.danger {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #fff;
+}
+
+button.link {
+  height: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #2563eb;
+}
+
+.log-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  color: #6b7280;
+}
+
+.logs {
+  max-height: 150px;
+  overflow: auto;
+  font-family: Consolas, Menlo, monospace;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.logs div {
+  color: #4b5563;
+}
+
+.logs .warn {
+  color: #b45309;
+}
+
+.logs .error {
+  color: #b91c1c;
+}
+
+.logs .success {
+  color: #15803d;
+}
+
+.logs .time {
+  color: #9ca3af;
+  margin-right: 6px;
+}
